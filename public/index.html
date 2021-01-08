@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JChat</title>
+    <!--Font awesome link-->
+    <script src="https://kit.fontawesome.com/aefc850311.js" crossorigin="anonymous"></script>
+    <!--Bootstrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="logoBG" id="logoBG">
+        <i class="fas fa-jedi fa-4x"></i>
+    </div>
+    <!-- Input for username -->
+    <div class="container">
+        <div class="row">
+            <div id="nickWrap" class="">
+                <h1 class="text-center">Welcome to JChat</h1>
+                <h6 class="text-center">We are glad you landed safely</h6>
+                <form id="setNick" class="p-3">
+                    <p>Enter username</p>
+                    <p id="nickError"></p>
+                    <div class="text-center">
+                        <input type="text" name="nickname" class="form-control" required>
+                        <button class="btn btn-p btn-lg mt-4 col-md-12">Enter You Must</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat -->
+    <div id="contentWrap">
+        <nav class="navbar  gore">
+            <span class="navbar-brand logo"><i class="fas fa-jedi fa-3x">JChat</i></span>
+        </nav>
+
+        <nav class="nav flex-column levo">
+            <h3><i class="fas fa-users"></i> Users</h3>
+            <ul>
+                <i class="fas fa-robot"></i> Aki-bot <br>
+                <!-- User placement -->
+                <div id="users">
+                </div>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <!-- Message placement -->
+            <div class="chat-messages"></div>
+            <!-- User is typing message -->
+            <div id="feedback"></div>
+        </div>
+        <!-- Input for messages and emoji/bot-commands -->
+        <div class="dole">
+            <form id="msgForm" class=" ml-5 mt-3">
+                <div class="input-group  input-group-lg container">
+                    <input id='handle' type="text" name="msg" onfocus="emojiHide();akiHide();" class="form-control" placeholder="Message" maxlength="100" aria-label="Recipient's username" aria-describedby="basic-addon2" required autocomplete="off">
+                    <div class="input-group-append ">
+                        <div class="row">
+                            <div id="aki" style="display: none;">
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="Aki-tab" data-toggle="tab" href="#Aki" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fas fa-robot"></i></a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="Aki" role="tabpanel"
+                                        aria-labelledby="Aki-tab">
+                                        <a onclick="getAki(this)">!aki-speak</a><br>
+                                        <a onclick="getAki(this)">!aki-roast</a><br>
+                                        <a onclick="getAki(this)">!aki-anime</a><br>
+                                        <a onclick="getAki(this)">!aki-movie</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="input-group-text pt-2 pb-2 robot"><i class="fas fa-robot fa-2x" onclick="aki();emojiHide();"></i></span>
+                    </div>
+
+                    <div class="input-group-append ">
+                        <div class="row">
+                            <div id="emoji" style="display: none;">
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="Emoji-tab" data-toggle="tab"
+                                            href="#Emoji" role="tab" aria-controls="nav-home" aria-selected="true"><i
+                                                class="fas fa-grin-squint"></i></a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="Emoji" role="tabpanel"
+                                        aria-labelledby="Emoji-tab">
+                                        <a onclick="getEmoji(this)">&#128512;</a>
+                                        <a onclick="getEmoji(this)">&#128513;</a>
+                                        <a onclick="getEmoji(this)">&#128514;</a>
+                                        <a onclick="getEmoji(this)">&#128515;</a>
+                                        <a onclick="getEmoji(this)">&#128516;</a>
+                                        <a onclick="getEmoji(this)">&#128517;</a>
+                                        <a onclick="getEmoji(this)">&#128518;</a>
+                                        <a onclick="getEmoji(this)">&#128519;</a>
+                                        <a onclick="getEmoji(this)">&#128520;</a>
+                                        <a onclick="getEmoji(this)">&#128521;</a>
+                                        <a onclick="getEmoji(this)">&#128522;</a>
+                                        <a onclick="getEmoji(this)">&#128523;</a>
+                                        <a onclick="getEmoji(this)">&#128524;</a>
+                                        <a onclick="getEmoji(this)">&#128525;</a>
+                                        <a onclick="getEmoji(this)">&#128526;</a>
+                                        <a onclick="getEmoji(this)">&#128527;</a>
+                                        <a onclick="getEmoji(this)">&#128528;</a>
+                                        <a onclick="getEmoji(this)">&#128529;</a>
+                                        <a onclick="getEmoji(this)">&#128530;</a>
+                                        <a onclick="getEmoji(this)">&#128531;</a>
+                                        <a onclick="getEmoji(this)">&#128532;</a>
+                                        <a onclick="getEmoji(this)">&#128533;</a>
+                                        <a onclick="getEmoji(this)">&#128534;</a>
+                                        <a onclick="getEmoji(this)">&#128535;</a>
+                                        <a onclick="getEmoji(this)">&#128536;</a>
+                                        <a onclick="getEmoji(this)">&#128537;</a>
+                                        <a onclick="getEmoji(this)">&#128538;</a>
+                                        <a onclick="getEmoji(this)">&#128539;</a>
+                                        <a onclick="getEmoji(this)">&#128540;</a>
+                                        <a onclick="getEmoji(this)">&#128541;</a>
+                                        <a onclick="getEmoji(this)">&#128542;</a>
+                                        <a onclick="getEmoji(this)">&#128543;</a>
+                                        <a onclick="getEmoji(this)">&#128544;</a>
+                                        <a onclick="getEmoji(this)">&#128545;</a>
+                                        <a onclick="getEmoji(this)">&#128546;</a>
+                                        <a onclick="getEmoji(this)">&#128547;</a>
+                                        <a onclick="getEmoji(this)">&#128548;</a>
+                                        <a onclick="getEmoji(this)">&#128549;</a>
+                                        <a onclick="getEmoji(this)">&#128550;</a>
+                                        <a onclick="getEmoji(this)">&#128551;</a>
+                                        <a onclick="getEmoji(this)">&#128552;</a>
+                                        <a onclick="getEmoji(this)">&#128553;</a>
+
+                                        <a onclick="getEmoji(this)">&#128554;</a>
+                                        <a onclick="getEmoji(this)">&#128555;</a>
+                                        <a onclick="getEmoji(this)">&#128556;</a>
+                                        <a onclick="getEmoji(this)">&#128557;</a>
+                                        <a onclick="getEmoji(this)">&#128558;</a>
+                                        <a onclick="getEmoji(this)">&#128559;</a>
+                                        <a onclick="getEmoji(this)">&#128560;</a>
+                                        <a onclick="getEmoji(this)">&#128561;</a>
+                                        <a onclick="getEmoji(this)">&#128562;</a>
+                                        <a onclick="getEmoji(this)">&#128563;</a>
+                                        <a onclick="getEmoji(this)">&#128564;</a>
+                                        <a onclick="getEmoji(this)">&#128565;</a>
+                                        <a onclick="getEmoji(this)">&#128566;</a>
+                                        <a onclick="getEmoji(this)">&#128567;</a>
+                                        <a onclick="getEmoji(this)">&#128568;</a>
+                                        <a onclick="getEmoji(this)">&#128569;</a>
+                                        <a onclick="getEmoji(this)">&#128570;</a>
+                                        <a onclick="getEmoji(this)">&#128571;</a>
+                                        <a onclick="getEmoji(this)">&#128572;</a>
+                                        <a onclick="getEmoji(this)">&#128573;</a>
+                                        <a onclick="getEmoji(this)">&#128574;</a>
+                                        <a onclick="getEmoji(this)">&#128575;</a>
+                                        <a onclick="getEmoji(this)">&#128576;</a>
+                                        <a onclick="getEmoji(this)">&#128577;</a>
+                                        <a onclick="getEmoji(this)">&#128578;</a>
+                                        <a onclick="getEmoji(this)">&#128579;</a>
+                                        <a onclick="getEmoji(this)">&#128580;</a>
+                                        <a onclick="getEmoji(this)">&#128581;</a>
+
+                                        <a onclick="getEmoji(this)">&#128582;</a>
+                                        <a onclick="getEmoji(this)">&#128583;</a>
+                                        <a onclick="getEmoji(this)">&#128584;</a>
+                                        <a onclick="getEmoji(this)">&#128585;</a>
+                                        <a onclick="getEmoji(this)">&#128586;</a>
+                                        <a onclick="getEmoji(this)">&#128587;</a>
+                                        <a onclick="getEmoji(this)">&#128588;</a>
+                                        <a onclick="getEmoji(this)">&#128587;</a>
+                                        <a onclick="getEmoji(this)">&#128590;</a>
+                                        <a onclick="getEmoji(this)">&#128591;</a>
+
+                                        <a onclick="getEmoji(this)">&#128640;</a>
+                                        <a onclick="getEmoji(this)">&#128641;</a>
+                                        <a onclick="getEmoji(this)">&#128642;</a>
+                                        <a onclick="getEmoji(this)">&#128643;</a>
+                                        <a onclick="getEmoji(this)">&#128644;</a>
+                                        <a onclick="getEmoji(this)">&#128645;</a>
+                                        <a onclick="getEmoji(this)">&#128646;</a>
+                                        <a onclick="getEmoji(this)">&#128647;</a>
+                                        <a onclick="getEmoji(this)">&#128648;</a>
+
+                                        <a onclick="getEmoji(this)">&#128649;</a>
+                                        <a onclick="getEmoji(this)">&#128650;</a>
+                                        <a onclick="getEmoji(this)">&#128651;</a>
+                                        <a onclick="getEmoji(this)">&#128652;</a>
+                                        <a onclick="getEmoji(this)">&#128653;</a>
+                                        <a onclick="getEmoji(this)">&#128654;</a>
+                                        <a onclick="getEmoji(this)">&#128655;</a>
+                                        <a onclick="getEmoji(this)">&#128656;</a>
+                                        <a onclick="getEmoji(this)">&#128657;</a>
+                                        <a onclick="getEmoji(this)">&#129409;</a>
+
+                                        <a onclick="getEmoji(this)">&#128000;</a>
+                                        <a onclick="getEmoji(this)">&#128001;</a>
+                                        <a onclick="getEmoji(this)">&#128002;</a>
+                                        <a onclick="getEmoji(this)">&#128003;</a>
+                                        <a onclick="getEmoji(this)">&#128004;</a>
+                                        <a onclick="getEmoji(this)">&#128005;</a>
+                                        <a onclick="getEmoji(this)">&#128006;</a>
+                                        <a onclick="getEmoji(this)">&#128007;</a>
+                                        <a onclick="getEmoji(this)">&#128008;</a>
+                                        <a onclick="getEmoji(this)">&#128009;</a>
+                                        <a onclick="getEmoji(this)">&#128010;</a>
+                                        <a onclick="getEmoji(this)">&#128011;</a>
+                                        <a onclick="getEmoji(this)">&#128012;</a>
+                                        <a onclick="getEmoji(this)">&#128013;</a>
+                                        <a onclick="getEmoji(this)">&#128014;</a>
+                                        <a onclick="getEmoji(this)">&#128015;</a>
+                                        <a onclick="getEmoji(this)">&#128016;</a>
+                                        <a onclick="getEmoji(this)">&#128017;</a>
+                                        <a onclick="getEmoji(this)">&#128018;</a>
+                                        <a onclick="getEmoji(this)">&#128019;</a>
+                                        <a onclick="getEmoji(this)">&#128020;</a>
+                                        <a onclick="getEmoji(this)">&#128021;</a>
+                                        <a onclick="getEmoji(this)">&#128022;</a>
+                                        <a onclick="getEmoji(this)">&#128023;</a>
+                                        <a onclick="getEmoji(this)">&#128024;</a>
+                                        <a onclick="getEmoji(this)">&#128025;</a>
+                                        <a onclick="getEmoji(this)">&#128026;</a>
+                                        <a onclick="getEmoji(this)">&#128027;</a>
+                                        <a onclick="getEmoji(this)">&#128028;</a>
+                                        <a onclick="getEmoji(this)">&#128029;</a>
+                                        <a onclick="getEmoji(this)">&#128030;</a>
+                                        <a onclick="getEmoji(this)">&#128031;</a>
+                                        <a onclick="getEmoji(this)">&#128032;</a>
+                                        <a onclick="getEmoji(this)">&#128033;</a>
+                                        <a onclick="getEmoji(this)">&#128034;</a>
+                                        <a onclick="getEmoji(this)">&#128035;</a>
+                                        <a onclick="getEmoji(this)">&#128036;</a>
+                                        <a onclick="getEmoji(this)">&#128037;</a>
+                                        <a onclick="getEmoji(this)">&#128038;</a>
+                                        <a onclick="getEmoji(this)">&#128039;</a>
+                                        <a onclick="getEmoji(this)">&#128040;</a>
+                                        <a onclick="getEmoji(this)">&#128041;</a>
+                                        <a onclick="getEmoji(this)">&#128042;</a>
+                                        <a onclick="getEmoji(this)">&#128043;</a>
+                                        <a onclick="getEmoji(this)">&#128044;</a>
+                                        <a onclick="getEmoji(this)">&#128045;</a>
+                                        <a onclick="getEmoji(this)">&#128046;</a>
+                                        <a onclick="getEmoji(this)">&#128047;</a>
+                                        <a onclick="getEmoji(this)">&#128048;</a>
+                                        <a onclick="getEmoji(this)">&#128049;</a>
+                                        <a onclick="getEmoji(this)">&#128050;</a>
+                                        <a onclick="getEmoji(this)">&#128051;</a>
+                                        <a onclick="getEmoji(this)">&#128052;</a>
+                                        <a onclick="getEmoji(this)">&#128053;</a>
+                                        <a onclick="getEmoji(this)">&#128054;</a>
+                                        <a onclick="getEmoji(this)">&#128055;</a>
+                                        <a onclick="getEmoji(this)">&#128056;</a>
+                                        <a onclick="getEmoji(this)">&#128057;</a>
+                                        <a onclick="getEmoji(this)">&#128058;</a>
+                                        <a onclick="getEmoji(this)">&#128059;</a>
+                                        <a onclick="getEmoji(this)">&#128060;</a>
+                                        <a onclick="getEmoji(this)">&#128061;</a>
+                                        <a onclick="getEmoji(this)">&#128062;</a>
+                                        <a onclick="getEmoji(this)">&#128063;</a>
+                                        <a onclick="getEmoji(this)">&#128064;</a>
+                                        <a onclick="getEmoji(this)">&#128065;</a>
+                                        <a onclick="getEmoji(this)">&#128066;</a>
+                                        <a onclick="getEmoji(this)">&#128067;</a>
+                                        <a onclick="getEmoji(this)">&#128068;</a>
+                                        <a onclick="getEmoji(this)">&#128069;</a>
+                                        <a onclick="getEmoji(this)">&#128070;</a>
+                                        <a onclick="getEmoji(this)">&#128071;</a>
+                                        <a onclick="getEmoji(this)">&#128072;</a>
+                                        <a onclick="getEmoji(this)">&#128073;</a>
+                                        <a onclick="getEmoji(this)">&#128074;</a>
+                                        <a onclick="getEmoji(this)">&#128075;</a>
+                                        <a onclick="getEmoji(this)">&#128076;</a>
+                                        <a onclick="getEmoji(this)">&#128077;</a>
+                                        <a onclick="getEmoji(this)">&#128078;</a>
+                                        <a onclick="getEmoji(this)">&#128079;</a>
+                                        <a onclick="getEmoji(this)">&#128080;</a>
+                                        <a onclick="getEmoji(this)">&#128081;</a>
+                                        <a onclick="getEmoji(this)">&#128082;</a>
+                                        <a onclick="getEmoji(this)">&#128083;</a>
+                                        <a onclick="getEmoji(this)">&#128084;</a>
+                                        <a onclick="getEmoji(this)">&#128085;</a>
+                                        <a onclick="getEmoji(this)">&#128086;</a>
+                                        <a onclick="getEmoji(this)">&#128087;</a>
+
+                                        <a onclick="getEmoji(this)">&#128147;</a>
+                                        <a onclick="getEmoji(this)">&#128148;</a>
+                                        <a onclick="getEmoji(this)">&#128149;</a>
+                                        <a onclick="getEmoji(this)">&#128150;</a>
+                                        <a onclick="getEmoji(this)">&#128151;</a>
+
+                                        <a onclick="getEmoji(this)">&#128152;</a>
+                                        <a onclick="getEmoji(this)">&#128153;</a>
+                                        <a onclick="getEmoji(this)">&#128154;</a>
+                                        <a onclick="getEmoji(this)">&#128155;</a>
+                                        <a onclick="getEmoji(this)">&#128156;</a>
+                                        <a onclick="getEmoji(this)">&#128157;</a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="input-group-text pt-2 pb-2 dugme" id="basic-addon2"><i class="fas fa-smile-beam fa-2x" onclick="emoji();akiHide();"></i></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <script src="user.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
