@@ -1,5 +1,7 @@
 # JChat
-Realtime chat app using Node.js, Express, Socket.io and MongoDB with Vanilla JS on the frontend with a custom UI
+Realtime chat app using Node.js, Express, Socket.io and MongoDB with Vanilla JS.<br> <br>
+![](https://github.com/littlenines/nodejs-JChat/blob/0813d81dc8c56c9133d0c2f32a7e9cd5918b6481/UI.png)
+![](https://github.com/littlenines/nodejs-JChat/blob/0813d81dc8c56c9133d0c2f32a7e9cd5918b6481/UI-main.png)
 ## Desc
 Added User is typing <br>
 Added Emojis :japanese_goblin: <br>
